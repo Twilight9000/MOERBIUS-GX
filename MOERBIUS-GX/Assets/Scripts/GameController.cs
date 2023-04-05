@@ -47,12 +47,11 @@ public class GameController : MonoBehaviour
         t = "" + min + ":";
         if (secs < 10)
         {
+            t += "0";
 
         }
-
-
-
-
+        t += secs;
+        timerText.text = t;
     }
 
     void RaceComplete()
