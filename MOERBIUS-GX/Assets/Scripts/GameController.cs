@@ -39,9 +39,19 @@ public class GameController : MonoBehaviour
     {
         timer += Time.deltaTime;
 
+        string t;
+        int min = (int)(timer / 60);
 
+        int secs = (int)(timer % 60);
 
+        t = "" + min + ":";
+        if (secs < 10)
+        {
+            t += "0";
 
+        }
+        t += secs;
+        timerText.text = t;
     }
 
     void RaceComplete()
