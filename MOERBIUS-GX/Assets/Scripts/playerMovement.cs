@@ -27,18 +27,38 @@ public class playerMovement : MonoBehaviour
 
     public PlayerInput pI;
 
+    public InputAction hMove;
+    public InputAction vMove;
+    public InputAction accelerate;
+
+    private void Awake()
+    {
+        pI = GetComponent<PlayerInput>();
+
+        pI.currentActionMap.Enable();
+
+        hMove = pI.currentActionMap.FindAction("hMove");
+        vMove = pI.currentActionMap.FindAction("vMove");
+        accelerate = pI.currentActionMap.FindAction("Accelerate");
+
+        hMove.performed += ctx => hInput = ctx.ReadValue<float>();
+        hMove.canceled += ctx => hInput = 0;
+
+        vMove.performed += ctx => vInput = ctx.ReadValue<float>();
+        vMove.canceled += ctx => vInput = 0;
+
+        accelerate.performed += ctx => setDollySpeed(1 * forwardSpeed);
+        accelerate.canceled += ctx => setDollySpeed(0);
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        pI = GetComponent<PlayerInput>();
     }
 
     private void Update()
     {
-        hInput = Input.GetAxisRaw("Horizontal");
-        vInput = Input.GetAxisRaw("Vertical");
-
-        setDollySpeed(vInput * forwardSpeed);
+        //setDollySpeed(vInput * forwardSpeed);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         //rb.useGravity = !isGrounded;

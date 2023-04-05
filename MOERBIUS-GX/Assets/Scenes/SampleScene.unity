@@ -356,6 +356,34 @@ MonoBehaviour:
     m_Bits: 64
   dollyTrack: {fileID: 25250662}
   forwardSpeed: 12
+  pI: {fileID: 0}
+  hMove:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c1903c0e-c303-4253-9156-7dbd4df5b1bf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  vMove:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: df9ad71d-176b-4a9a-9c06-6cc2a70f2430
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  accelerate:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f4a8e0e4-3b1c-427d-a35b-6c0d00cde36b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!54 &318643548
 Rigidbody:
   m_ObjectHideFlags: 0
