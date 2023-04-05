@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
     {
         timer += Time.deltaTime;
 
+        string t = 
 
 
 
