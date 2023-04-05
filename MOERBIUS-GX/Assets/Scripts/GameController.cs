@@ -13,14 +13,13 @@ public class GameController : MonoBehaviour
     public TMP_Text timerText;
 
 
-    // Start is called before the first frame update
+ 
     void Start()
     {
         currentLap = 1;
 
     }
-
-    // Update is called once per frame
+ 
     void Update()
     {
         TimerProcess();
@@ -52,8 +51,12 @@ public class GameController : MonoBehaviour
         }
         t += secs;
         timerText.text = t;
+
     }
 
+    /// <summary>
+    /// Called when the race is completed.
+    /// </summary>
     void RaceComplete()
     {
         print("RaceComplete called.");
