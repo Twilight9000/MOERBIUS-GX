@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 
     public TMP_Text timerText;
 
+    public TMP_Text lapText;
+
 
  
     void Start()
@@ -28,6 +30,8 @@ public class GameController : MonoBehaviour
         {
             RaceComplete();
         }
+
+        lapText.text = "Lap " + currentLap;
 
     }
 
