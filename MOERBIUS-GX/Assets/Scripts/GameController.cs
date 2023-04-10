@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -61,9 +62,10 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Called when the race is completed.
     /// </summary>
-    void RaceComplete()
+    public void RaceComplete()
     {
-        print("RaceComplete called.");
+        Debug.Log("RaceComplete called.");
+        SceneManager.LoadScene("End");
     }
     
 }
