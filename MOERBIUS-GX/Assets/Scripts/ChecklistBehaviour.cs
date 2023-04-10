@@ -27,22 +27,22 @@ public class ChecklistBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(task1Done == true)
+        if(task1Done == true || Input.GetKey(KeyCode.UpArrow))
         {
-            task1.text = ("Task 1: DONE");
+            task1.text = ("Move Forward: DONE");
         }
         else
         {
-            task1.text = ("Task 1: NOT DONE");
+            task1.text = ("Move Forward: NOT DONE");
         }
 
-        if (task2Done == true)
+        if (task2Done == true || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
-            task2.text = ("Task 2: DONE");
+            task2.text = ("Rotate Around Track: DONE");
         }
         else
         {
-            task2.text = ("Task 2: NOT DONE");
+            task2.text = ("Rotate Around Track: NOT DONE");
         }
 
         if (task3Done == true)
