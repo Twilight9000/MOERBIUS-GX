@@ -15,18 +15,17 @@ public class GameController : MonoBehaviour
 
     public TMP_Text lapText;
 
-
  
     void Start()
     {
         currentLap = 1;
-
     }
  
     void Update()
     {
         TimerProcess();
 
+        //if lap counter is greater than 3, goes to end of game
         if (currentLap >= 4)
         {
             RaceComplete();
@@ -66,6 +65,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("RaceComplete called.");
         SceneManager.LoadScene("End");
+
     }
 
     public void Restart()
