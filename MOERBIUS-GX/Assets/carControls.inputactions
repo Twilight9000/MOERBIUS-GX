@@ -35,7 +35,7 @@
             ],
             "bindings": [
                 {
-                    "name": "Movement1",
+                    "name": "Gamepad",
                     "id": "cf5d1b51-083b-4863-9db8-37bf7a3d8ea6",
                     "path": "1DAxis",
                     "interactions": "",
@@ -60,6 +60,39 @@
                     "name": "positive",
                     "id": "78b682fb-cda6-4663-b77d-2c05385690c7",
                     "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "hMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "ae9cd2bb-47e3-4811-8f04-0d9a232d2206",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "hMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "ec9d2668-081b-4aef-8ec9-1fc7b304dfdf",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "hMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "1cc6fcd5-f31b-4425-874a-5460fdf1bf11",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -104,6 +137,17 @@
                     "name": "",
                     "id": "8e4f508f-261c-4f06-a078-d3b31cc3edc0",
                     "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd69118d-5d41-413b-8f0c-2085f3728f96",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
