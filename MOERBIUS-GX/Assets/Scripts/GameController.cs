@@ -67,5 +67,10 @@ public class GameController : MonoBehaviour
         Debug.Log("RaceComplete called.");
         SceneManager.LoadScene("End");
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+    }
     
 }
