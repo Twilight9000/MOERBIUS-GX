@@ -6,7 +6,9 @@ public class FinishLine : MonoBehaviour
 {
     public List<GameObject> allProgressPoints = new List<GameObject>();
     public GameObject checkpoint;
-    PlayerBehaviour pb;
+    public PlayerBehaviour pb;
+    public GameController gc;
+    public bool canLap;
 
     // Start is called before the first frame update
     void Start()
@@ -36,13 +38,24 @@ public class FinishLine : MonoBehaviour
     {
         foreach (GameObject progressPoint in allProgressPoints)
         {
-            if (progressPoint == false)
+            if (progressPoint.GetComponent<CheckpointBehaviour>().isHit == false)
             {
+                canLap = false;
                 break;
             }
             else
             {
-                //lapComplete
+                canLap = true;
+                continue;
+            }
+        }
+
+        if (canLap == true)
+        {
+            gc.currentLap++;
+            foreach (GameObject progressPoint in allProgressPoints)
+            {
+                progressPoint.GetComponent<CheckpointBehaviour>().isHit = false;
             }
         }
     }

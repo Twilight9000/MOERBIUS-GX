@@ -6,7 +6,7 @@ public class CheckpointBehaviour : MonoBehaviour
 {
     public bool isHit = false;
     public GameObject checkpoint;
-    PlayerBehaviour pb;
+    public PlayerBehaviour pb;
 
     // Start is called before the first frame update
     void Start()
