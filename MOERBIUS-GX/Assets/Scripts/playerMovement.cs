@@ -63,7 +63,7 @@ public class playerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         //rb.useGravity = !isGrounded;
 
-        gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
+        //gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, playerHeight))
