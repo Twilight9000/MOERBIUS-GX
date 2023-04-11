@@ -72,10 +72,12 @@ public class playerMovement : MonoBehaviour
             transform.position += surfaceNormal * (playerHeight / 2.0f);
         }
 
+        /*
         if (Input.GetKey(KeyCode.Space))
         {
             rb.velocity = jumpDirection.normalized * jumpForce;
         }
+        */
     }
 
     void OnCollisionStay(Collision collision)
