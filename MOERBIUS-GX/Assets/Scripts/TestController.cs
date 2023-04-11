@@ -34,6 +34,8 @@ public class TestController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 20f);
+
         if (Input.GetKey(KeyCode.A))
         {
             gameObject.transform.Rotate(-rotation * Time.deltaTime);
