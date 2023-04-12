@@ -24,12 +24,20 @@ public class playerMovement : MonoBehaviour
 
     public CinemachineDollyCart dollyTrack;
     public float forwardSpeed;
+    public int direction;
+    public bool isOnGas;
+    public bool isOnReverse;
+
+    public float minSpeed;
+    public float maxSpeed;
+    public float accelAndDecelValue;
 
     public PlayerInput pI;
 
     public InputAction hMove;
     public InputAction vMove;
     public InputAction accelerate;
+    public InputAction reverse;
 
     private void Awake()
     {
@@ -40,6 +48,7 @@ public class playerMovement : MonoBehaviour
         hMove = pI.currentActionMap.FindAction("hMove");
         vMove = pI.currentActionMap.FindAction("vMove");
         accelerate = pI.currentActionMap.FindAction("Accelerate");
+        reverse = pI.currentActionMap.FindAction("Reverse");
 
         hMove.performed += ctx => hInput = ctx.ReadValue<float>();
         hMove.canceled += ctx => hInput = 0;
@@ -47,8 +56,11 @@ public class playerMovement : MonoBehaviour
         vMove.performed += ctx => vInput = ctx.ReadValue<float>();
         vMove.canceled += ctx => vInput = 0;
 
-        accelerate.performed += ctx => setDollySpeed(1 * forwardSpeed);
-        accelerate.canceled += ctx => setDollySpeed(0);
+        accelerate.performed += ctx => isOnGas = true;
+        accelerate.canceled += ctx => isOnGas = false;
+
+        reverse.performed += ctx => isOnReverse = true;
+        reverse.canceled += ctx => isOnReverse = false;
     }
 
     private void Start()
@@ -58,19 +70,42 @@ public class playerMovement : MonoBehaviour
 
     private void Update()
     {
-        //setDollySpeed(vInput * forwardSpeed);
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if(isOnGas)
+        {
+            direction = 1;
+        } else if (isOnReverse)
+        {
+            direction = -1;
+        }
+
+        if (isOnGas || isOnReverse)
+        {
+            forwardSpeed += accelAndDecelValue;
+        }
+        else
+        {
+            forwardSpeed -= accelAndDecelValue;
+        }
+
+        forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed);
+        setDollySpeed(direction * forwardSpeed);
+
         //rb.useGravity = !isGrounded;
 
         //gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
 
+        /*
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, playerHeight))
         {
             Vector3 surfaceNormal = hit.normal;
             transform.position += surfaceNormal * (playerHeight / 2.0f);
         }
+
+        Debug.DrawRay(transform.position, -transform.up * playerHeight, Color.red);
+        */
 
         /*
         if (Input.GetKey(KeyCode.Space))

@@ -696,11 +696,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6527796432842138505, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: m_Constraints
-      value: 52
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: maxSpeed
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: playerHeight
-      value: 0.5
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: reverse.m_Id
+      value: e2d12995-f3d4-499a-aa1f-7e4f7d878a52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: reverse.m_Name
+      value: Reverse
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: accelAndDecelValue
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6527796432842138511, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: m_LocalPosition.x

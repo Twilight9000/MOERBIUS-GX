@@ -53,6 +53,15 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reverse"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3b980e3-c154-45fb-8f57-b8aa3f5b577d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -176,6 +185,28 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c438e36f-34af-412f-8451-3986d004d77f"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a369f902-5d96-47a8-96ae-ef70b6e19999"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reverse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +218,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         m_car_hMove = m_car.FindAction("hMove", throwIfNotFound: true);
         m_car_vMove = m_car.FindAction("vMove", throwIfNotFound: true);
         m_car_Accelerate = m_car.FindAction("Accelerate", throwIfNotFound: true);
+        m_car_Reverse = m_car.FindAction("Reverse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,6 +281,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_car_hMove;
     private readonly InputAction m_car_vMove;
     private readonly InputAction m_car_Accelerate;
+    private readonly InputAction m_car_Reverse;
     public struct CarActions
     {
         private @CarControls m_Wrapper;
@@ -256,6 +289,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         public InputAction @hMove => m_Wrapper.m_car_hMove;
         public InputAction @vMove => m_Wrapper.m_car_vMove;
         public InputAction @Accelerate => m_Wrapper.m_car_Accelerate;
+        public InputAction @Reverse => m_Wrapper.m_car_Reverse;
         public InputActionMap Get() { return m_Wrapper.m_car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -274,6 +308,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Accelerate.started -= m_Wrapper.m_CarActionsCallbackInterface.OnAccelerate;
                 @Accelerate.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnAccelerate;
                 @Accelerate.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnAccelerate;
+                @Reverse.started -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
+                @Reverse.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
+                @Reverse.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
             }
             m_Wrapper.m_CarActionsCallbackInterface = instance;
             if (instance != null)
@@ -287,6 +324,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Accelerate.started += instance.OnAccelerate;
                 @Accelerate.performed += instance.OnAccelerate;
                 @Accelerate.canceled += instance.OnAccelerate;
+                @Reverse.started += instance.OnReverse;
+                @Reverse.performed += instance.OnReverse;
+                @Reverse.canceled += instance.OnReverse;
             }
         }
     }
@@ -296,5 +336,6 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         void OnHMove(InputAction.CallbackContext context);
         void OnVMove(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
+        void OnReverse(InputAction.CallbackContext context);
     }
 }
