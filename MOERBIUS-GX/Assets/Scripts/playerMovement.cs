@@ -103,7 +103,7 @@ public class playerMovement : MonoBehaviour
 
         //rb.useGravity = !isGrounded;
 
-        //gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
+        gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
 
         /*
         RaycastHit hit;
