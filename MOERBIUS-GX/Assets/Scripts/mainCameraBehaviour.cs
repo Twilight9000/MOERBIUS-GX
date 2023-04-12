@@ -9,6 +9,8 @@ public class mainCameraBehaviour : MonoBehaviour
     public Vector3 cameraNewRot;
 
     public GameObject pivotPointObj;
+    public GameObject player;
+
     public PlayerInput pI;
     public InputAction hMove;
     public float rotatingXSpeed;
@@ -32,7 +34,8 @@ public class mainCameraBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
+        //transform.position = (pivotPointObj.transform.position + player.transform.position) / 2;
+        //gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
 
         /*
         cameraNewPos = new Vector3(player.transform.position.x + playerPositionOffset.x, player.transform.position.y + playerPositionOffset.y, player.transform.position.z + playerPositionOffset.z);

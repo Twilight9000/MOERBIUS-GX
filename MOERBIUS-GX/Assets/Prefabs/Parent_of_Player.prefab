@@ -100,6 +100,7 @@ MonoBehaviour:
   cameraNewPos: {x: 0, y: 0, z: 0}
   cameraNewRot: {x: 0, y: 0, z: 0}
   pivotPointObj: {fileID: 6527796432594892212}
+  player: {fileID: 6527796432842138499}
   pI: {fileID: 6527796432842138504}
   hMove:
     m_Name: H Move
