@@ -62,6 +62,15 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e036d0a-cbae-470e-9f41-4ee0c397aaaf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,28 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""action"": ""Reverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4aba619-4d00-4c8c-9734-93b7d7c22714"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c077ca12-b187-48c4-ad55-2bb688659aa6"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -219,6 +250,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         m_car_vMove = m_car.FindAction("vMove", throwIfNotFound: true);
         m_car_Accelerate = m_car.FindAction("Accelerate", throwIfNotFound: true);
         m_car_Reverse = m_car.FindAction("Reverse", throwIfNotFound: true);
+        m_car_TogglePause = m_car.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +314,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_car_vMove;
     private readonly InputAction m_car_Accelerate;
     private readonly InputAction m_car_Reverse;
+    private readonly InputAction m_car_TogglePause;
     public struct CarActions
     {
         private @CarControls m_Wrapper;
@@ -290,6 +323,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         public InputAction @vMove => m_Wrapper.m_car_vMove;
         public InputAction @Accelerate => m_Wrapper.m_car_Accelerate;
         public InputAction @Reverse => m_Wrapper.m_car_Reverse;
+        public InputAction @TogglePause => m_Wrapper.m_car_TogglePause;
         public InputActionMap Get() { return m_Wrapper.m_car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -311,6 +345,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Reverse.started -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
                 @Reverse.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
                 @Reverse.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
+                @TogglePause.started -= m_Wrapper.m_CarActionsCallbackInterface.OnTogglePause;
+                @TogglePause.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnTogglePause;
+                @TogglePause.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnTogglePause;
             }
             m_Wrapper.m_CarActionsCallbackInterface = instance;
             if (instance != null)
@@ -327,6 +364,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Reverse.started += instance.OnReverse;
                 @Reverse.performed += instance.OnReverse;
                 @Reverse.canceled += instance.OnReverse;
+                @TogglePause.started += instance.OnTogglePause;
+                @TogglePause.performed += instance.OnTogglePause;
+                @TogglePause.canceled += instance.OnTogglePause;
             }
         }
     }
@@ -337,5 +377,6 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         void OnVMove(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
         void OnReverse(InputAction.CallbackContext context);
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }

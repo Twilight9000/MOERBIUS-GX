@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class GameController : MonoBehaviour
@@ -15,10 +16,26 @@ public class GameController : MonoBehaviour
 
     public TMP_Text lapText;
 
- 
+    public GameObject pauseMenu;
+
+    public PlayerInput pI;
+
+    public InputAction pauseToggle;
+
+    private void Awake()
+    {
+
+        pI.currentActionMap.Enable();
+
+        pauseToggle = pI.currentActionMap.FindAction("PauseToggle");
+    }
+
     void Start()
     {
         currentLap = 1;
+
+        pauseMenu.SetActive(false);
+
     }
  
     void Update()
