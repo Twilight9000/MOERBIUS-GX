@@ -26,12 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571645436}
-  m_LocalRotation: {x: 0.14654022, y: -0.3585599, z: 0.06928896, w: 0.9193257}
-  m_LocalPosition: {x: 3.5999987, y: 2.0999997, z: -4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.15054326, y: -0.2951586, z: 0.0593346, w: 0.9416462}
+  m_LocalPosition: {x: 12.5, y: 37, z: -18.5}
+  m_LocalScale: {x: 1.8867924, y: 1.8867925, z: 1.8867925}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6527796432842138511}
+  m_Father: {fileID: 6527796432594892208}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 18.61, y: -42.393, z: 1.349}
 --- !u!20 &1571645438
@@ -92,14 +92,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571645436}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c785b381f22904a6b89150d8c5511c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraNewPos: {x: 0, y: 0, z: 0}
   cameraNewRot: {x: 0, y: 0, z: 0}
+  pivotPointObj: {fileID: 6527796432594892212}
   player: {fileID: 6527796432842138499}
+  pI: {fileID: 6527796432842138504}
+  hMove:
+    m_Name: H Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e1e9b0ea-4f49-4b9c-9159-5149a18682ea
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rotatingXSpeed: 2
+  hInput: 0
   playerPositionOffset: {x: 0, y: 0, z: -4.08}
   playerRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6527796432594892212
@@ -132,6 +145,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6527796432842138511}
+  - {fileID: 1571645439}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.048, y: 7.801, z: 0}
@@ -168,7 +182,8 @@ GameObject:
   - component: {fileID: 6527796432842138510}
   - component: {fileID: 6527796432842138504}
   - component: {fileID: 1939839012}
-  m_Layer: 0
+  - component: {fileID: 1939839013}
+  m_Layer: 7
   m_Name: Player_Object_Themselves
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -183,12 +198,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6527796432842138499}
   m_LocalRotation: {x: -0.00041456363, y: 0.068025775, z: 0.000028266493, w: 0.99768347}
-  m_LocalPosition: {x: -0, y: 5.99, z: -0.04}
+  m_LocalPosition: {x: -0, y: 26.6, z: -0.1}
   m_LocalScale: {x: 1.8867925, y: 1.8867924, z: 1.8867925}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6527796434328984950}
-  - {fileID: 1571645439}
   m_Father: {fileID: 6527796432594892208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,10 +280,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!114 &6527796432842138510
 MonoBehaviour:
@@ -287,7 +301,7 @@ MonoBehaviour:
   hInput: 0
   vInput: 0
   pivotPointObj: {fileID: 6527796432594892212}
-  playerHeight: 0.5
+  playerHeight: 0.4
   gravityStrength: 10
   rb: {fileID: 6527796432842138505}
   jumpDirection: {x: 0, y: 0, z: 0}
@@ -300,6 +314,12 @@ MonoBehaviour:
     m_Bits: 64
   dollyTrack: {fileID: 6527796432594892211}
   forwardSpeed: 12
+  direction: 0
+  isOnGas: 0
+  isOnReverse: 0
+  minSpeed: 0
+  maxSpeed: 25
+  accelAndDecelValue: 0.25
   pI: {fileID: 0}
   hMove:
     m_Name: H Move
@@ -324,6 +344,33 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: f4a8e0e4-3b1c-427d-a35b-6c0d00cde36b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  reverse:
+    m_Name: Reverse
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e2d12995-f3d4-499a-aa1f-7e4f7d878a52
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  restart:
+    m_Name: Restart
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9ee0f62c-d994-48f8-bebc-79926a75d5a6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  quit:
+    m_Name: Quit
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cafeb791-a0b1-4621-9d33-e1f1a1f115cd
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -365,12 +412,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6527796432842138499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50e8055817151d34fb0330cd2757192d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activeCheckpoint: {fileID: 0}
+--- !u!114 &1939839013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527796432842138499}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72f60d0a13789840a79c6fc262c5325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atb: {fileID: 0}
 --- !u!1 &6527796434328984951
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,7 +81,9 @@ public class playerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isOnGas)
+        gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
+
+        if (isOnGas)
         {
             direction = 1;
         } else if (isOnReverse)
@@ -103,9 +105,6 @@ public class playerMovement : MonoBehaviour
 
         //rb.useGravity = !isGrounded;
 
-        gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
-
-        /*
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -transform.up, out hit, playerHeight))
         {
@@ -114,7 +113,6 @@ public class playerMovement : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position, -transform.up * playerHeight, Color.red);
-        */
 
         /*
         if (Input.GetKey(KeyCode.Space))
