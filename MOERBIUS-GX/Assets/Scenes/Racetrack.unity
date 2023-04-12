@@ -2775,6 +2775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5906439097200010940, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5906439097200010942, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2886,8 +2890,28 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5991250050270812340, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991250050270812340, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991250050270812340, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991250050270812340, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -239.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991250050270812340, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 42
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991250050270812341, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
+      propertyPath: m_fontSize
+      value: 17.3
       objectReference: {fileID: 0}
     - target: {fileID: 5991250050270812341, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_margin.x
@@ -2897,6 +2921,10 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 6d9508f4a26a95f4f99c2f9465edef77, type: 2}
+    - target: {fileID: 5991250050270812341, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 17.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5991250050270812341, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_sharedMaterial
       value: 
