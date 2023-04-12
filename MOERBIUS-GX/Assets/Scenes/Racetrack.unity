@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5dfe53d574a424e76a57eccd18a0bc5c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -703,8 +703,16 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: quit.m_Id
+      value: cafeb791-a0b1-4621-9d33-e1f1a1f115cd
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: playerHeight
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: restart.m_Id
+      value: 9ee0f62c-d994-48f8-bebc-79926a75d5a6
       objectReference: {fileID: 0}
     - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: reverse.m_Id

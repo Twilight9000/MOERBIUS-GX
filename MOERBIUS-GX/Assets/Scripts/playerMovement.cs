@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class playerMovement : MonoBehaviour
     public InputAction vMove;
     public InputAction accelerate;
     public InputAction reverse;
+    public InputAction restart;
+    public InputAction quit;
 
     private void Awake()
     {
@@ -49,6 +52,8 @@ public class playerMovement : MonoBehaviour
         vMove = pI.currentActionMap.FindAction("vMove");
         accelerate = pI.currentActionMap.FindAction("Accelerate");
         reverse = pI.currentActionMap.FindAction("Reverse");
+        restart = pI.currentActionMap.FindAction("Restart");
+        quit = pI.currentActionMap.FindAction("Quit");
 
         hMove.performed += ctx => hInput = ctx.ReadValue<float>();
         hMove.canceled += ctx => hInput = 0;
@@ -61,6 +66,10 @@ public class playerMovement : MonoBehaviour
 
         reverse.performed += ctx => isOnReverse = true;
         reverse.canceled += ctx => isOnReverse = false;
+
+        restart.performed += ctx => SceneManager.LoadScene("Racetrack");
+
+        quit.performed += ctx => Application.Quit();
     }
 
     private void Start()

@@ -62,6 +62,24 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""d57d9d0b-8f21-4f75-a2cf-c7d77f8d5b69"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""8984c758-8bd0-4a92-a07a-004111088d32"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +225,50 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""action"": ""Reverse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c87a8504-eb59-4208-bcd5-22848ea3e8b4"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf7c95fe-e571-400a-8e40-82896efed7d4"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7affd8ca-56de-47e6-8a2c-efc6abb79e4c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4be489d0-b2d1-4a4f-b908-0ec0ebaa091c"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -219,6 +281,8 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         m_car_vMove = m_car.FindAction("vMove", throwIfNotFound: true);
         m_car_Accelerate = m_car.FindAction("Accelerate", throwIfNotFound: true);
         m_car_Reverse = m_car.FindAction("Reverse", throwIfNotFound: true);
+        m_car_Restart = m_car.FindAction("Restart", throwIfNotFound: true);
+        m_car_Quit = m_car.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +346,8 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_car_vMove;
     private readonly InputAction m_car_Accelerate;
     private readonly InputAction m_car_Reverse;
+    private readonly InputAction m_car_Restart;
+    private readonly InputAction m_car_Quit;
     public struct CarActions
     {
         private @CarControls m_Wrapper;
@@ -290,6 +356,8 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         public InputAction @vMove => m_Wrapper.m_car_vMove;
         public InputAction @Accelerate => m_Wrapper.m_car_Accelerate;
         public InputAction @Reverse => m_Wrapper.m_car_Reverse;
+        public InputAction @Restart => m_Wrapper.m_car_Restart;
+        public InputAction @Quit => m_Wrapper.m_car_Quit;
         public InputActionMap Get() { return m_Wrapper.m_car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -311,6 +379,12 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Reverse.started -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
                 @Reverse.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
                 @Reverse.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnReverse;
+                @Restart.started -= m_Wrapper.m_CarActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnRestart;
+                @Quit.started -= m_Wrapper.m_CarActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_CarActionsCallbackInterface = instance;
             if (instance != null)
@@ -327,6 +401,12 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Reverse.started += instance.OnReverse;
                 @Reverse.performed += instance.OnReverse;
                 @Reverse.canceled += instance.OnReverse;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -337,5 +417,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         void OnVMove(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
         void OnReverse(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }
