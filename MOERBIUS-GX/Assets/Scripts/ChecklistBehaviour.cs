@@ -12,6 +12,7 @@ public class ChecklistBehaviour : MonoBehaviour
     public bool task1Done;
     public bool task2Done;
     public bool task3Done;
+
     // Start is called before the first frame update
     void Start()
     {
