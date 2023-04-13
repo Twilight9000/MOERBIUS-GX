@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class GameController : MonoBehaviour
@@ -15,11 +16,34 @@ public class GameController : MonoBehaviour
 
     public TMP_Text lapText;
 
- 
+    public GameObject pauseMenu;
+
     void Start()
     {
         currentLap = 1;
+
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
+
+    public void TogglePause()
+    {
+        if (SceneManager.GetActiveScene().name == "Racetrack")
+        {
+            if (pauseMenu.activeInHierarchy == false)
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else if (pauseMenu.activeInHierarchy == true)
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }        
+    }
+
+    
  
     void Update()
     {
@@ -73,4 +97,21 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
     }
     
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+    
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Quit()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
+
 }
