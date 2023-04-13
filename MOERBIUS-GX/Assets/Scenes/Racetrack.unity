@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -762,6 +762,14 @@ PrefabInstance:
     - target: {fileID: 6527796432842138505, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: m_Constraints
       value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: pause.m_Id
+      value: e2280cb8-c897-4466-9676-074f73568735
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138510, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: pause.m_Name
+      value: Pause
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
@@ -1881,7 +1889,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1166121061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 223883712}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1166121061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2150,7 +2170,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1238619610}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 223883712}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1238619610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,7 +2675,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1616671466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 223883712}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1616671466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3789,14 +3833,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 7162626743130170050, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
       propertyPath: lapText
       value: 
       objectReference: {fileID: 5906439097672247410}
     - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 2136531479}
+    - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 203454996041527492}
+    - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
+      propertyPath: pauseToggle.m_Id
+      value: 791bbf10-b106-4377-9d8e-7f2336fce5ca
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
+      propertyPath: pauseToggle.m_Name
+      value: Pause Toggle
+      objectReference: {fileID: 0}
     - target: {fileID: 7162626743130170060, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
       propertyPath: m_RootOrder
       value: 0
