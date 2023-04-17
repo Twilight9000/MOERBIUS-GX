@@ -8,6 +8,7 @@ TagManager:
   - ProgressPoint
   - Ground
   - Bullet
+  - DestructObj
   layers:
   - Default
   - TransparentFX
