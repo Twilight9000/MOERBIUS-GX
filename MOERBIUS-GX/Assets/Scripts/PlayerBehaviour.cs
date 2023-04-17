@@ -24,5 +24,9 @@ public class PlayerBehaviour : MonoBehaviour
         {
             gameObject.transform.position = activeCheckpoint.transform.position;
         }
+        if (other.gameObject.tag == "AmmoPickup")
+        {
+            other.gameObject.GetComponent<AmmoPickup>().AddAmmo();
+        }
     }
 }
