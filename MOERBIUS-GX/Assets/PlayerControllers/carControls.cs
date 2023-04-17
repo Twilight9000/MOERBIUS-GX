@@ -80,6 +80,15 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""b215f4e3-129e-4eee-97e6-c4cee36459df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -251,7 +260,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7affd8ca-56de-47e6-8a2c-efc6abb79e4c"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/backquote"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -262,11 +271,33 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4be489d0-b2d1-4a4f-b908-0ec0ebaa091c"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7670c284-8e8a-4e45-9f2a-14ac0aab8d23"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fdb0a08-c9d7-41bc-a57f-871215928dec"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -283,6 +314,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         m_car_Reverse = m_car.FindAction("Reverse", throwIfNotFound: true);
         m_car_Restart = m_car.FindAction("Restart", throwIfNotFound: true);
         m_car_Quit = m_car.FindAction("Quit", throwIfNotFound: true);
+        m_car_Pause = m_car.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,6 +380,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_car_Reverse;
     private readonly InputAction m_car_Restart;
     private readonly InputAction m_car_Quit;
+    private readonly InputAction m_car_Pause;
     public struct CarActions
     {
         private @CarControls m_Wrapper;
@@ -358,6 +391,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         public InputAction @Reverse => m_Wrapper.m_car_Reverse;
         public InputAction @Restart => m_Wrapper.m_car_Restart;
         public InputAction @Quit => m_Wrapper.m_car_Quit;
+        public InputAction @Pause => m_Wrapper.m_car_Pause;
         public InputActionMap Get() { return m_Wrapper.m_car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +419,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Quit.started -= m_Wrapper.m_CarActionsCallbackInterface.OnQuit;
                 @Quit.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnQuit;
                 @Quit.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnQuit;
+                @Pause.started -= m_Wrapper.m_CarActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_CarActionsCallbackInterface = instance;
             if (instance != null)
@@ -407,6 +444,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Quit.started += instance.OnQuit;
                 @Quit.performed += instance.OnQuit;
                 @Quit.canceled += instance.OnQuit;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -419,5 +459,6 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         void OnReverse(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

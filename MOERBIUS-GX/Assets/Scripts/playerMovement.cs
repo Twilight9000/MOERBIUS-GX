@@ -10,7 +10,7 @@ public class playerMovement : MonoBehaviour
     public float rotatingXSpeed;
     public float hInput;
     public float vInput;
-    public GameObject pivotPointObj;
+    public GameObject pivotPointObj, GameController;
     public float playerHeight;
     public float gravityStrength = 5;
     public Rigidbody rb;
@@ -41,6 +41,9 @@ public class playerMovement : MonoBehaviour
     public InputAction reverse;
     public InputAction restart;
     public InputAction quit;
+    public InputAction pause;
+
+    public GameController gc;
 
     private void Awake()
     {
@@ -54,6 +57,7 @@ public class playerMovement : MonoBehaviour
         reverse = pI.currentActionMap.FindAction("Reverse");
         restart = pI.currentActionMap.FindAction("Restart");
         quit = pI.currentActionMap.FindAction("Quit");
+        pause = pI.currentActionMap.FindAction("Pause");
 
         hMove.performed += ctx => hInput = ctx.ReadValue<float>();
         hMove.canceled += ctx => hInput = 0;
@@ -70,6 +74,11 @@ public class playerMovement : MonoBehaviour
         restart.performed += ctx => SceneManager.LoadScene("Racetrack");
 
         quit.performed += ctx => Application.Quit();
+
+        GameController = GameObject.FindGameObjectWithTag("GameController");
+        gc = GameController.GetComponent<GameController>();
+
+        pause.performed += ctx => gc.TogglePause();
     }
 
     private void Start()
