@@ -43,7 +43,7 @@ public class ChecklistBehaviour : MonoBehaviour
             task1.text = ("Fire Weapon: DONE");
         }
      
-        if (gc.GetComponent<GameController>().timer > 3)
+        if (gc.GetComponent<GameController>().timer > 180)
         {
             task2.text = ("Complete Under 3 Minutes: FAILED");
         }
