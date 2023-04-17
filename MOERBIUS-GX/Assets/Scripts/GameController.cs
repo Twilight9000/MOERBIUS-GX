@@ -70,14 +70,14 @@ public class GameController : MonoBehaviour
     void TimerProcess()
     {
         timer += Time.deltaTime;
-        timerCap -= Time.deltaTime;
+        negationTimer -= Time.deltaTime;
 
         string t;
 
-        t = "" + (timerCap / 60) + ":";
-        t += (timerCap % 60);
+        t = "" + (negationTimer / 60) + ":";
+        t += (negationTimer % 60);
 
-        if (timerCap <= 0)
+        if (negationTimer <= 0)
         {
             RaceComplete();
         }
