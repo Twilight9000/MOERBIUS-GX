@@ -45,6 +45,8 @@ public class playerMovement : MonoBehaviour
 
     public GameController gc;
 
+    private float speedResetTimer = 10;
+
     private void Awake()
     {
         pI = GetComponent<PlayerInput>();
@@ -150,4 +152,21 @@ public class playerMovement : MonoBehaviour
     {
         dollyTrack.m_Speed = speed;
     }
+
+    public void TempSpeedUp(float increase)
+    {
+        forwardSpeed += increase;
+        StartCoroutine(ResetSpeed(increase));
+
+    }
+
+    IEnumerator ResetSpeed(float decrease)
+    {
+        yield return new WaitForSeconds(speedResetTimer);
+        forwardSpeed -= decrease;
+        yield return null;
+
+    }
+
+
 }

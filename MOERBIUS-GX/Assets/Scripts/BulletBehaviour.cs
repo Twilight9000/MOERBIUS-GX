@@ -30,6 +30,14 @@ public class BulletBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "SpeedPowerUp")
+        {
+            collision.gameObject.GetComponent<SpeedPowerUp>().CollisionBehavior();
+        }
        
     }
+
+
+
 }
