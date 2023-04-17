@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     [Tooltip("Player should always start on Lap 1 and the game ends after 3 is completed (which is when this number equals 4)")]
     public int currentLap = 1;
 
-    [SerializeField] private float timer = 0;
+    [SerializeField] public float timer = 0;
 
     public TMP_Text timerText;
 
@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     private float negationTimer = 0;
 
     public GameObject pauseMenu;
+
+    public bool threeMinCheck; 
 
     void Start()
     {

@@ -13,46 +13,44 @@ public class ChecklistBehaviour : MonoBehaviour
     public bool task2Done;
     public bool task3Done;
 
-    // Start is called before the first frame update
+    public GameObject gc;
+    public GameObject spu;
+  
+
+        // Start is called before the first frame update
     void Start()
     {
-        task1.text = ("");
-        task2.text = ("");
-        task3.text = ("");
+        task1.text = ("Fire Weapon: NOT DONE");
+        task2.text = ("Complete Under 3 Minutes: IN PROGRESS");
+        task3.text = ("Collect Speed Boost: NOT DONE");
 
         task1Done = false;
         task2Done = false;
         task3Done = false;
+
+        gc = GameObject.Find("GameController");
+        gc.GetComponent<GameController>();
+        spu = GameObject.Find("SpeedIncreaseItem");
+        spu.GetComponent<SpeedPowerUp>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(task1Done == true || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Q))
         {
-            task1.text = ("Move Forward: DONE");
+            task1.text = ("Fire Weapon: DONE");
         }
-        else
+     
+        if (gc.GetComponent<GameController>().timer > 180)
         {
-            task1.text = ("Move Forward: NOT DONE");
-        }
-
-        if (task2Done == true || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            task2.text = ("Rotate Around Track: DONE");
-        }
-        else
-        {
-            task2.text = ("Rotate Around Track: NOT DONE");
+            task2.text = ("Complete Under 3 Minutes: FAILED");
         }
 
-        if (task3Done == true)
+        if (spu.GetComponent<SpeedPowerUp>().DidThing == true)
         {
-            task3.text = ("Task 3: DONE");
-        }
-        else
-        {
-            task3.text = ("Task 3: NOT DONE");
+            task3.text = ("Collect Speed Boost: DONE");
         }
     }
 }
