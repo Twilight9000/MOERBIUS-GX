@@ -15,10 +15,15 @@ public class GameController : MonoBehaviour
 
     public TMP_Text lapText;
 
+    private float timerCap = 5*60;
+    private float negationTimer = 0;
+
  
     void Start()
     {
+        negationTimer = timerCap;
         currentLap = 1;
+
     }
  
     void Update()
@@ -41,20 +46,19 @@ public class GameController : MonoBehaviour
     void TimerProcess()
     {
         timer += Time.deltaTime;
+        timerCap -= Time.deltaTime;
 
         string t;
-        int min = (int)(timer / 60);
 
-        int secs = (int)(timer % 60);
+        t = "" + (timerCap / 60) + ":";
+        t += (timerCap % 60);
 
-        t = "" + min + ":";
-        if (secs < 10)
+        if (timerCap <= 0)
         {
-            t += "0";
-
+            RaceComplete();
         }
-        t += secs;
-        timerText.text = t;
+
+        timerText.text += t;
 
     }
 
