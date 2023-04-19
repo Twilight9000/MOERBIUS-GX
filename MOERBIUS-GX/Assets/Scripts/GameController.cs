@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     private float timerCap = 5*60;
     private float negationTimer = 0;
 
-    public GameObject pauseMenu;
+    public GameObject pauseMenu, controlsMenu;
 
     public bool threeMinCheck; 
 
@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour
         currentLap = 1;
 
 
-        pauseMenu.SetActive(false);
+        pauseMenu.SetActive(false);pauseMenu.SetActive(false);
+        controlsMenu.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -37,14 +38,20 @@ public class GameController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Racetrack")
         {
-            if (pauseMenu.activeInHierarchy == false)
+            if (pauseMenu.activeInHierarchy == false && controlsMenu.activeInHierarchy == false)
             {
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
             }
+            else if (pauseMenu.activeInHierarchy == false && controlsMenu.activeInHierarchy == true)
+            {
+                controlsMenu.SetActive(false);
+                Time.timeScale = 1;
+                }
             else if (pauseMenu.activeInHierarchy == true)
             {
                 pauseMenu.SetActive(false);
+                controlsMenu.SetActive(false);
                 Time.timeScale = 1;
             }
         }        
@@ -112,6 +119,18 @@ public class GameController : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void ControlsMenuOpen()
+    {
+        controlsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+    
+    public void ControlsMenuClose()
+    {
+        controlsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     public void Quit()
