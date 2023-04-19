@@ -11,6 +11,8 @@ TagManager:
   - DestructObj
   - SpeedPowerUp
   - AmmoPickup
+  - SpeedPluls
+  - SpeedPlus
   layers:
   - Default
   - TransparentFX
