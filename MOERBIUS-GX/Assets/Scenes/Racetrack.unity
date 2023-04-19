@@ -780,6 +780,10 @@ PrefabInstance:
       value: Parent_of_Player
       objectReference: {fileID: 0}
     - target: {fileID: 6527796432842138505, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527796432842138505, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
