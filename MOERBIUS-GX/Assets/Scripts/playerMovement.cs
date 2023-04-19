@@ -25,6 +25,10 @@ public class playerMovement : MonoBehaviour
 
     public CinemachineDollyCart dollyTrack;
     public float forwardSpeed;
+    public float speedMod;
+    public bool speedPlusZone;
+    public bool speedMinusZone;
+
     public int direction;
     public bool isOnGas;
     public bool isOnReverse;
@@ -112,7 +116,18 @@ public class playerMovement : MonoBehaviour
         }
 
         forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed);
-        setDollySpeed(direction * forwardSpeed);
+        if (speedPlusZone == true)
+        {
+            setDollySpeed(direction * speedMod * forwardSpeed );
+        }
+        else if (speedMinusZone == true)
+        {
+            setDollySpeed(direction / speedMod * forwardSpeed );
+        }
+        else
+        {
+            setDollySpeed(direction * forwardSpeed);
+        }
 
         //rb.useGravity = !isGrounded;
 
@@ -147,6 +162,31 @@ public class playerMovement : MonoBehaviour
             jumpDirection = collisionNormal;
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "SpeedPlus")
+        {
+            speedPlusZone = true;
+            print("Speed Boostin");
+        }
+
+        if (other.gameObject.tag == "SpeedMinus")
+        {
+            speedMinusZone = true;
+            print("Speed Minusin");
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "SpeedPlus" || (other.gameObject.tag == "SpeedMinus"))
+        {
+            speedPlusZone = false;
+            speedMinusZone = false;
+            print("Speed Normalin");
+        }
+    }
+
 
     public void setDollySpeed(float speed)
     {
