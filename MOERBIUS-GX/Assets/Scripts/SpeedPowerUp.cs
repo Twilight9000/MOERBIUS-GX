@@ -6,18 +6,18 @@ public class SpeedPowerUp : MonoBehaviour
 {
     private playerMovement pc;
     private float speedIncrease = 15f;
-    public bool DidThing;
+    public int DidThing;
     // Start is called before the first frame update
     void Start()
     {
         pc = FindObjectOfType<playerMovement>();
-        DidThing = false;
+        DidThing = 0;
     }
 
     public void CollisionBehavior()
     {
         pc.TempSpeedUp(speedIncrease);
         Destroy(gameObject);
-        DidThing = true;
+        ++DidThing;
     }
 }
