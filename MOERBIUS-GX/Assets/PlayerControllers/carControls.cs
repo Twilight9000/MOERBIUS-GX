@@ -89,6 +89,15 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""f60be111-1288-4756-8305-bcf344efce0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -300,6 +309,28 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ed885576-1fb2-4072-b2bf-1a25bdc3077f"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6525a4b7-bf7a-4b68-be1f-d2e6bb926d6e"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -315,6 +346,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         m_car_Restart = m_car.FindAction("Restart", throwIfNotFound: true);
         m_car_Quit = m_car.FindAction("Quit", throwIfNotFound: true);
         m_car_Pause = m_car.FindAction("Pause", throwIfNotFound: true);
+        m_car_Shoot = m_car.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -381,6 +413,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_car_Restart;
     private readonly InputAction m_car_Quit;
     private readonly InputAction m_car_Pause;
+    private readonly InputAction m_car_Shoot;
     public struct CarActions
     {
         private @CarControls m_Wrapper;
@@ -392,6 +425,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         public InputAction @Restart => m_Wrapper.m_car_Restart;
         public InputAction @Quit => m_Wrapper.m_car_Quit;
         public InputAction @Pause => m_Wrapper.m_car_Pause;
+        public InputAction @Shoot => m_Wrapper.m_car_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -422,6 +456,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_CarActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnPause;
+                @Shoot.started -= m_Wrapper.m_CarActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_CarActionsCallbackInterface = instance;
             if (instance != null)
@@ -447,6 +484,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -460,5 +500,6 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         void OnRestart(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }
