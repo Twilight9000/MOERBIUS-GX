@@ -16,8 +16,8 @@ public class SpeedPowerUp : MonoBehaviour
 
     public void CollisionBehavior()
     {
+        ++DidThing;
         pc.TempSpeedUp(speedIncrease);
         Destroy(gameObject);
-        ++DidThing;
     }
 }
