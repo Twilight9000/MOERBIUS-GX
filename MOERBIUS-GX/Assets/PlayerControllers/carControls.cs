@@ -98,6 +98,15 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateCamera"",
+                    ""type"": ""Value"",
+                    ""id"": ""c7daadd0-7a89-4608-b998-5c8aafeb48ca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -331,6 +340,72 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46520e8a-2d06-428e-8e11-37d00c23d4e2"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""6c2acd72-ece6-4471-aea8-4e0491200e42"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e391d2d4-b16b-4200-8670-0f4d9e6bcccb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""141b95f5-a28d-4fab-898d-4d7bcd3ffdc2"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""064da361-ba68-4691-a9ad-cb8ec07de03b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a6ca6abb-7697-4973-b95f-f3d6c4817923"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -347,6 +422,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         m_car_Quit = m_car.FindAction("Quit", throwIfNotFound: true);
         m_car_Pause = m_car.FindAction("Pause", throwIfNotFound: true);
         m_car_Shoot = m_car.FindAction("Shoot", throwIfNotFound: true);
+        m_car_RotateCamera = m_car.FindAction("RotateCamera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -414,6 +490,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_car_Quit;
     private readonly InputAction m_car_Pause;
     private readonly InputAction m_car_Shoot;
+    private readonly InputAction m_car_RotateCamera;
     public struct CarActions
     {
         private @CarControls m_Wrapper;
@@ -426,6 +503,7 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         public InputAction @Quit => m_Wrapper.m_car_Quit;
         public InputAction @Pause => m_Wrapper.m_car_Pause;
         public InputAction @Shoot => m_Wrapper.m_car_Shoot;
+        public InputAction @RotateCamera => m_Wrapper.m_car_RotateCamera;
         public InputActionMap Get() { return m_Wrapper.m_car; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -459,6 +537,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_CarActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnShoot;
+                @RotateCamera.started -= m_Wrapper.m_CarActionsCallbackInterface.OnRotateCamera;
+                @RotateCamera.performed -= m_Wrapper.m_CarActionsCallbackInterface.OnRotateCamera;
+                @RotateCamera.canceled -= m_Wrapper.m_CarActionsCallbackInterface.OnRotateCamera;
             }
             m_Wrapper.m_CarActionsCallbackInterface = instance;
             if (instance != null)
@@ -487,6 +568,9 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @RotateCamera.started += instance.OnRotateCamera;
+                @RotateCamera.performed += instance.OnRotateCamera;
+                @RotateCamera.canceled += instance.OnRotateCamera;
             }
         }
     }
@@ -501,5 +585,6 @@ public partial class @CarControls : IInputActionCollection2, IDisposable
         void OnQuit(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnRotateCamera(InputAction.CallbackContext context);
     }
 }
