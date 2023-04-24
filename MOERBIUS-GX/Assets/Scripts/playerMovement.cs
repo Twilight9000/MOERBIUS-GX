@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
-    public float rotatingXSpeed;
+    public float rotatingYSpeed;
     public float hInput;
     public float vInput;
     public GameObject pivotPointObj, GameController;
@@ -48,6 +48,8 @@ public class playerMovement : MonoBehaviour
     public InputAction pause;
 
     public GameController gc;
+
+    public Quaternion newRotation;
 
     private float speedResetTimer = 10;
 
@@ -96,7 +98,9 @@ public class playerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        //gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingXSpeed);
+        //gameObject.transform.RotateAround(pivotPointObj.transform.position, new Vector3(0, 0, 1), hInput * rotatingYSpeed);
+
+        gameObject.transform.Rotate(0, hInput * rotatingYSpeed, 0);
 
         if (isOnGas)
         {
