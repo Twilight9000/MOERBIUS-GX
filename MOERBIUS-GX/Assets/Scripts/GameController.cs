@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
@@ -17,12 +16,10 @@ public class GameController : MonoBehaviour
 
     public TMP_Text lapText;
 
-    public Text bulletAmtText;
-
     private float timerCap = 5*60;
     private float negationTimer = 0;
 
-    public GameObject pauseMenu, controlsMenu, player;
+    public GameObject pauseMenu, controlsMenu;
 
     public bool threeMinCheck; 
 
@@ -30,8 +27,7 @@ public class GameController : MonoBehaviour
     {
         negationTimer = timerCap;
         currentLap = 1;
-        player = GameObject.FindGameObjectWithTag("Player");
-        bulletAmtText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
+
 
         pauseMenu.SetActive(false);pauseMenu.SetActive(false);
         controlsMenu.SetActive(false);
@@ -74,8 +70,6 @@ public class GameController : MonoBehaviour
         }
 
         lapText.text = "Lap " + currentLap;
-
-        bulletAmtText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
 
     }
 

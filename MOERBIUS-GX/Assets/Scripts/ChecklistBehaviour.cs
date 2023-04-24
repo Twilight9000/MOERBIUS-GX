@@ -48,10 +48,8 @@ public class ChecklistBehaviour : MonoBehaviour
             task2.text = ("Complete Under 3 Minutes: FAILED");
         }
 
-        if (spu != null)
+        if (spu = null)
         {
-            
-
             if (spu.GetComponent<SpeedPowerUp>().DidThing > 0)
             {
                 task3.text = ("Collect Speed Boost: DONE");
