@@ -4325,6 +4325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3a222cf26e85c46a5dafc66f2afe71, type: 3}
+--- !u!1 &1887668741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6527796432842138499, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+  m_PrefabInstance: {fileID: 536722698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1889638983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4586,7 +4591,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1939839012, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
   m_PrefabInstance: {fileID: 536722698}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1887668741}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50e8055817151d34fb0330cd2757192d, type: 3}
@@ -4653,6 +4658,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3a222cf26e85c46a5dafc66f2afe71, type: 3}
+--- !u!1 &2034478433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2034478434}
+  - component: {fileID: 2034478436}
+  - component: {fileID: 2034478435}
+  m_Layer: 5
+  m_Name: Bullet Amt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2034478434
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034478433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5906439097672247412}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &2034478435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034478433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 2d01241b1557c6542a4c6241c324ed61, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Ammo: x'
+--- !u!222 &2034478436
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034478433}
+  m_CullTransparentMesh: 1
 --- !u!1001 &2096383941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5307,6 +5392,10 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1887668741}
+    - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
       propertyPath: lapText
       value: 
       objectReference: {fileID: 5906439097672247410}
@@ -5322,6 +5411,10 @@ PrefabInstance:
       propertyPath: controlsMenu
       value: 
       objectReference: {fileID: 931663947}
+    - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
+      propertyPath: bulletAmtText
+      value: 
+      objectReference: {fileID: 2034478435}
     - target: {fileID: 7162626743130170051, guid: bed1f394854cd7b42ab5aec0aa08cae9, type: 3}
       propertyPath: pauseToggle.m_Id
       value: 791bbf10-b106-4377-9d8e-7f2336fce5ca
