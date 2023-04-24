@@ -926,6 +926,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2078627646388798213, guid: 94d30b04f4e21624bba7d7eddd860e3e, type: 3}
     - target: {fileID: 1392968993079205080, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
+      propertyPath: shoot.m_Id
+      value: 887a9b2d-37b4-4f16-895f-015ced720711
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392968993079205080, guid: bbd183adb2ac04b8eab3c34a9b5db9fd, type: 3}
       propertyPath: bulletOffset.w
       value: 0.9659258
       objectReference: {fileID: 0}

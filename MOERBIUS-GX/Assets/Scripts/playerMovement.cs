@@ -49,8 +49,6 @@ public class playerMovement : MonoBehaviour
 
     public GameController gc;
 
-    public Quaternion newRotation;
-
     private float speedResetTimer = 10;
 
     private void Awake()
