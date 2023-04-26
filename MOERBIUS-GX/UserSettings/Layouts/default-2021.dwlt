@@ -15,11 +15,11 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 43.2
-    width: 1536
-    height: 772.8
+    y: 53
+    width: 1440
+    height: 773
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,12 +43,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1536
-    height: 722.8
+    width: 1440
+    height: 723
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 71
+  controlID: 18
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -64,12 +64,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1208
+    x: 1132.5
     y: 0
-    width: 328
-    height: 722.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+    width: 307.5
+    height: 723
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -92,8 +92,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 245.6
-    height: 459.2
+    width: 289
+    height: 459.5
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
@@ -117,11 +117,11 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 459.2
-    width: 1208
-    height: 263.59998
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+    y: 459.5
+    width: 1132.5
+    height: 263.5
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 13}
@@ -148,8 +148,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1536
-    height: 772.8
+    width: 1440
+    height: 773
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1536
+    width: 1440
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 752.8
-    width: 1536
+    y: 753
+    width: 1440
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -218,12 +218,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1208
-    height: 722.8
+    width: 1132.5
+    height: 723
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 72
+  controlID: 19
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,12 +243,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1208
-    height: 459.2
+    width: 1132.5
+    height: 459.5
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 73
+  controlID: 20
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -264,10 +264,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 245.6
+    x: 289
     y: 0
-    width: 962.4
-    height: 459.2
+    width: 843.5
+    height: 459.5
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
@@ -297,10 +297,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 268.5
+    x: 289
     y: 83
-    width: 862
-    height: 421
+    width: 841.5
+    height: 438.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -329,9 +329,9 @@ MonoBehaviour:
     m_SearchString: 
   m_ActionsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 096466ed
-    m_LastClickedID: -312056823
-    m_ExpandedIDs: 35de02955077e59c854996ab41dfb5ad393e9bb0096466edf75094245e9b46318a234640d8dd3856074dad61ec5baa7b
+    m_SelectedIDs: 300483f8
+    m_LastClickedID: -125631440
+    m_ExpandedIDs: 35de02955077e59c854996ab41dfb5adf75094245e9b46318a234640d8dd3856074dad61ec5baa7b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,12 +386,18 @@ MonoBehaviour:
         selectedIndex: -1
         scroll: {x: 0, y: 0}
       - itemId: -1542029941
-        selectedIndex: 0
-        scroll: {x: 0, y: 0}
+        selectedIndex: 3
+        scroll: {x: 0, y: 97.5}
       - itemId: 1882128019
         selectedIndex: -1
         scroll: {x: 0, y: 0}
       - itemId: 998472819
+        selectedIndex: -1
+        scroll: {x: 0, y: 0}
+      - itemId: 1290626824
+        selectedIndex: -1
+        scroll: {x: 0, y: 0}
+      - itemId: 410152412
         selectedIndex: -1
         scroll: {x: 0, y: 0}
     m_ManualPathEditMode: 0
@@ -433,6 +439,10 @@ MonoBehaviour:
       \"type\": \"Button\",\n                    \"id\": \"f60be111-1288-4756-8305-bcf344efce0f\",\n                   
       \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
       \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
+      },\n                {\n                    \"name\": \"RotateCamera\",\n                   
+      \"type\": \"Value\",\n                    \"id\": \"c7daadd0-7a89-4608-b998-5c8aafeb48ca\",\n                   
+      \"expectedControlType\": \"\",\n                    \"processors\": \"\",\n                   
+      \"interactions\": \"\",\n                    \"initialStateCheck\": true\n               
       }\n            ],\n            \"bindings\": [\n                {\n                   
       \"name\": \"Gamepad\",\n                    \"id\": \"cf5d1b51-083b-4863-9db8-37bf7a3d8ea6\",\n                   
       \"path\": \"1DAxis\",\n                    \"interactions\": \"\",\n                   
@@ -541,8 +551,61 @@ MonoBehaviour:
       \"path\": \"<Gamepad>/buttonWest\",\n                    \"interactions\":
       \"\",\n                    \"processors\": \"\",\n                    \"groups\":
       \"\",\n                    \"action\": \"Shoot\",\n                    \"isComposite\":
-      false,\n                    \"isPartOfComposite\": false\n                }\n           
-      ]\n        }\n    ],\n    \"controlSchemes\": []\n}"
+      false,\n                    \"isPartOfComposite\": false\n                },\n               
+      {\n                    \"name\": \"Gamepad\",\n                    \"id\":
+      \"f1d9f2ce-0772-418b-b587-e7c4550f8996\",\n                    \"path\": \"2DVector\",\n                   
+      \"interactions\": \"\",\n                    \"processors\": \"\",\n                   
+      \"groups\": \"\",\n                    \"action\": \"RotateCamera\",\n                   
+      \"isComposite\": true,\n                    \"isPartOfComposite\": false\n               
+      },\n                {\n                    \"name\": \"up\",\n                   
+      \"id\": \"16268c64-99c1-4cd1-a04c-1870e8601d7e\",\n                    \"path\":
+      \"<Gamepad>/rightStick/up\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"RotateCamera\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": true\n                },\n                {\n                   
+      \"name\": \"down\",\n                    \"id\": \"955b9e1d-4195-463a-bf0e-b2b99e2ea1e4\",\n                   
+      \"path\": \"<Gamepad>/rightStick/down\",\n                    \"interactions\":
+      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
+      \"\",\n                    \"action\": \"RotateCamera\",\n                   
+      \"isComposite\": false,\n                    \"isPartOfComposite\": true\n               
+      },\n                {\n                    \"name\": \"left\",\n                   
+      \"id\": \"3b88978b-3391-4103-b180-5e8903372c1c\",\n                    \"path\":
+      \"<Gamepad>/rightStick/left\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"RotateCamera\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": true\n                },\n                {\n                   
+      \"name\": \"right\",\n                    \"id\": \"6996f661-eb5f-437c-8e9a-544480833d96\",\n                   
+      \"path\": \"<Gamepad>/rightStick/right\",\n                    \"interactions\":
+      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
+      \"\",\n                    \"action\": \"RotateCamera\",\n                   
+      \"isComposite\": false,\n                    \"isPartOfComposite\": true\n               
+      },\n                {\n                    \"name\": \"WASD\",\n                   
+      \"id\": \"6c2acd72-ece6-4471-aea8-4e0491200e42\",\n                    \"path\":
+      \"2DVector\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"RotateCamera\",\n                    \"isComposite\": true,\n                   
+      \"isPartOfComposite\": false\n                },\n                {\n                   
+      \"name\": \"up\",\n                    \"id\": \"e391d2d4-b16b-4200-8670-0f4d9e6bcccb\",\n                   
+      \"path\": \"<Keyboard>/w\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"RotateCamera\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": true\n                },\n                {\n                   
+      \"name\": \"down\",\n                    \"id\": \"141b95f5-a28d-4fab-898d-4d7bcd3ffdc2\",\n                   
+      \"path\": \"<Keyboard>/s\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"RotateCamera\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": true\n                },\n                {\n                   
+      \"name\": \"left\",\n                    \"id\": \"064da361-ba68-4691-a9ad-cb8ec07de03b\",\n                   
+      \"path\": \"<Keyboard>/a\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"RotateCamera\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": true\n                },\n                {\n                   
+      \"name\": \"right\",\n                    \"id\": \"a6ca6abb-7697-4973-b95f-f3d6c4817923\",\n                   
+      \"path\": \"<Keyboard>/d\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"RotateCamera\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": true\n                }\n            ]\n        }\n   
+      ],\n    \"controlSchemes\": []\n}"
     m_IsDirty: 0
   m_Toolbar:
     m_IsDirty: 0
@@ -614,7 +677,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 1.4000244}
     m_SelectedIDs: 32600000
     m_LastClickedID: 24626
-    m_ExpandedIDs: 00000000b4630000
+    m_ExpandedIDs: 0000000080630000826300008463000086630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -642,7 +705,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b4630000
+    m_ExpandedIDs: 0000000080630000826300008463000086630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -718,10 +781,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1208
-    y: 73.6
-    width: 327
-    height: 701.8
+    x: 1132.5
+    y: 83
+    width: 306.5
+    height: 702
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -760,9 +823,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73.6
-    width: 244.6
-    height: 438.2
+    y: 83
+    width: 288
+    height: 438.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -770,25 +833,25 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8cf9ffff
-      m_LastClickedID: -1652
-      m_ExpandedIDs: 90f7ffffbafaffffa65f0000
+      m_SelectedIDs: 72f2ffff
+      m_LastClickedID: -3470
+      m_ExpandedIDs: cef3ffff16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: SpeedIncreaseItem (1)
+        m_OriginalName: SpeedIncreaseItem (1)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -3518
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 3}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -816,10 +879,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 245.6
-    y: 73.6
-    width: 960.4
-    height: 438.2
+    x: 289
+    y: 83
+    width: 841.5
+    height: 438.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1054,9 +1117,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 463.5, y: 260.75, z: 0}
+    m_Target: {x: 56.9, y: 19, z: -20.9}
     speed: 2
-    m_Value: {x: 463.5, y: 260.75, z: 0}
+    m_Value: {x: 30.5, y: 14.4, z: 33.4}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1103,13 +1166,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0041906815, y: -0.0027184514, z: -0.000012845065, w: -0.9999972}
+    m_Target: {x: 0.27768826, y: 0.3406482, z: -0.10605168, w: 0.8919722}
     speed: 2
-    m_Value: {x: 0.004190641, y: -0.0027184251, z: -0.000012844941, w: -0.99998754}
+    m_Value: {x: 0.27768642, y: 0.34064594, z: -0.106050976, w: 0.8919662}
   m_Size:
-    m_Target: 286.9906
+    m_Target: 14.143506
     speed: 2
-    m_Value: 286.9906
+    m_Value: 14.132906
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1154,10 +1217,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 245.6
-    y: 73.6
-    width: 960.4
-    height: 438.2
+    x: 289
+    y: 83
+    width: 841.5
+    height: 438.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1168,7 +1231,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 927, y: 521.5}
+  m_TargetSize: {x: 1484, y: 835}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1183,10 +1246,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -370.80002
-    m_HBaseRangeMax: 370.80002
-    m_VBaseRangeMin: -208.6
-    m_VBaseRangeMax: 208.6
+    m_HBaseRangeMin: -371
+    m_HBaseRangeMax: 371
+    m_VBaseRangeMin: -208.75
+    m_VBaseRangeMax: 208.75
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -1204,23 +1267,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 960.4
-      height: 417.2
+      width: 841.5
+      height: 417.5
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 480.2, y: 208.6}
+    m_Translation: {x: 420.75, y: 208.75}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -480.2
-      y: -208.6
-      width: 960.4
-      height: 417.2
+      x: -420.75
+      y: -208.75
+      width: 841.5
+      height: 417.5
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1200.5, y: 547.75}
+  m_LastWindowPixelSize: {x: 1683, y: 877}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -1247,9 +1310,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 532.8
-    width: 1207
-    height: 242.59998
+    y: 542.5
+    width: 1131.5
+    height: 242.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

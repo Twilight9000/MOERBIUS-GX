@@ -320,15 +320,59 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "46520e8a-2d06-428e-8e11-37d00c23d4e2",
-                    "path": "<Gamepad>/rightStick",
+                    "name": "Gamepad",
+                    "id": "f1d9f2ce-0772-418b-b587-e7c4550f8996",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamera",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "16268c64-99c1-4cd1-a04c-1870e8601d7e",
+                    "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "RotateCamera",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "955b9e1d-4195-463a-bf0e-b2b99e2ea1e4",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "3b88978b-3391-4103-b180-5e8903372c1c",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "6996f661-eb5f-437c-8e9a-544480833d96",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "WASD",
