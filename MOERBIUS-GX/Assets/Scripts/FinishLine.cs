@@ -10,6 +10,8 @@ public class FinishLine : MonoBehaviour
     public GameController gc;
     public bool canLap;
 
+    public string parentName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,8 @@ public class FinishLine : MonoBehaviour
         {
             allProgressPoints.Add(progressPoint);
         }
+
+        parentName = transform.parent.name;
     }
 
     // Update is called once per frame
@@ -31,6 +35,21 @@ public class FinishLine : MonoBehaviour
         {
             checkpoint = pb.activeCheckpoint;
             CheckForProgress();
+            if(parentName == "TopFinishLine")
+            {
+                gc.score += 3000;
+                gc.scoreText.text = "Score: " + gc.score.ToString();
+            }
+            else if (parentName == "MiddleFinishLine")
+            {
+                gc.score += 2000;
+                gc.scoreText.text = "Score: " + gc.score.ToString();
+            }
+            else if (parentName == "BottomFinishLine")
+            {
+                gc.score += 1000;
+                gc.scoreText.text = "Score: " + gc.score.ToString();
+            }
         }
     }
 
