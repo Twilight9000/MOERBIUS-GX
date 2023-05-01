@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour
 
     public TMP_Text lapText;
 
+    public int score = 0;
+    public Text scoreText;
+
     //public Text ammoText;
 
     private float timerCap = 5*60;
