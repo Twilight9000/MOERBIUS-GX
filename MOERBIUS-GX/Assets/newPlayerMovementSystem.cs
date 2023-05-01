@@ -13,6 +13,17 @@ public class newPlayerMovementSystem : MonoBehaviour
     public PlayerInput pI;
     public InputAction hMove;
 
+
+    private float speedResetTimer = 5;
+
+    private float increaseAmount;
+
+    public float minSpeed;
+    public float maxSpeed;
+
+    private bool isBoosting;
+
+
     private void Awake()
     {
         pI = GetComponent<PlayerInput>();
@@ -35,4 +46,23 @@ public class newPlayerMovementSystem : MonoBehaviour
     {
         rb.velocity = new Vector3(hInput * moveSpeed, rb.velocity.y, forwardSpeed);
     }
-}
+
+
+    public void TempSpeedUp(float increase)
+    {
+        increaseAmount = increase;
+        isBoosting = true;
+        forwardSpeed += increase;
+        StartCoroutine(ResetSpeed(increase));
+
+    }
+
+    IEnumerator ResetSpeed(float decrease)
+    {
+        yield return new WaitForSeconds(speedResetTimer);
+        forwardSpeed -= decrease;
+        isBoosting = false;
+        yield return null;
+
+
+    }
