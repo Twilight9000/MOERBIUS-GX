@@ -9,6 +9,8 @@ public class newPlayerMovementSystem : MonoBehaviour
     public float hInput;
     public float moveSpeed;
     public float forwardSpeed;
+    public float gravityScale = 5;
+    public static float globalGravity = -9.81f;
 
     public PlayerInput pI;
     public InputAction hMove;
@@ -34,5 +36,8 @@ public class newPlayerMovementSystem : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector3(hInput * moveSpeed, rb.velocity.y, forwardSpeed);
+
+        Vector3 gravity = globalGravity * gravityScale * Vector3.up;
+        rb.AddForce(gravity, ForceMode.Acceleration);
     }
 }
