@@ -16,7 +16,7 @@ public class SpeedPowerUp : MonoBehaviour
 
     }
 
-    public void CollisionBehavior()
+    private void OnTriggerEnter(Collider other)
     {
         ++DidThing;
         pc.TempSpeedUp(speedIncrease);
