@@ -18,8 +18,8 @@ public class newPlayerMovementSystem : MonoBehaviour
 
     private float increaseAmount;
 
-    public float minSpeed;
-    public float maxSpeed;
+    private float minSpeed = -20;
+    private float maxSpeed = 25;
 
     private bool isBoosting;
 
