@@ -18,6 +18,7 @@ public class playerMovement : MonoBehaviour
     public Vector3 jumpDirection;
     public float jumpForce;
 
+    private bool isBoosting;
     public bool isGrounded;
     public Transform groundCheck;
     public float groundDistance;
@@ -49,7 +50,10 @@ public class playerMovement : MonoBehaviour
 
     public GameController gc;
 
-    private float speedResetTimer = 10;
+    private float speedResetTimer = 5;
+
+    private float increaseAmount;
+
 
     private void Awake()
     {
@@ -117,7 +121,15 @@ public class playerMovement : MonoBehaviour
             forwardSpeed -= accelAndDecelValue;
         }
 
-        forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed);
+        if (isBoosting!)
+        {
+            forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed);
+        }
+        else
+        {
+            forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed + increaseAmount);
+        }
+
         if (speedPlusZone == true)
         {
             setDollySpeed(direction * speedMod * forwardSpeed );
@@ -165,29 +177,29 @@ public class playerMovement : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "SpeedPlus")
-        {
-            speedPlusZone = true;
-            print("Speed Boostin");
-        }
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "SpeedPlus")
+    //    {
+    //        speedPlusZone = true;
+    //        print("Speed Boostin");
+    //    }
 
-        if (other.gameObject.tag == "SpeedMinus")
-        {
-            speedMinusZone = true;
-            print("Speed Minusin");
-        }
-    }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "SpeedPlus" || (other.gameObject.tag == "SpeedMinus"))
-        {
-            speedPlusZone = false;
-            speedMinusZone = false;
-            print("Speed Normalin");
-        }
-    }
+    //    if (other.gameObject.tag == "SpeedMinus")
+    //    {
+    //        speedMinusZone = true;
+    //        print("Speed Minusin");
+    ////    }
+    //}
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.tag == "SpeedPlus" || (other.gameObject.tag == "SpeedMinus"))
+    //    {
+    //        speedPlusZone = false;
+    //        speedMinusZone = false;
+    //        print("Speed Normalin");
+    //    }
+    //}
 
 
     public void setDollySpeed(float speed)
@@ -197,6 +209,8 @@ public class playerMovement : MonoBehaviour
 
     public void TempSpeedUp(float increase)
     {
+        increaseAmount = increase;
+        isBoosting = true;
         forwardSpeed += increase;
         StartCoroutine(ResetSpeed(increase));
 
@@ -206,6 +220,7 @@ public class playerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(speedResetTimer);
         forwardSpeed -= decrease;
+        isBoosting = false;
         yield return null;
 
     }

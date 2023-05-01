@@ -9,11 +9,20 @@ public class newPlayerMovementSystem : MonoBehaviour
     public float hInput;
     public float moveSpeed;
     public float forwardSpeed;
-    public float gravityScale = 5;
-    public static float globalGravity = -9.81f;
 
     public PlayerInput pI;
     public InputAction hMove;
+
+
+    private float speedResetTimer = 5;
+
+    private float increaseAmount;
+
+    public float minSpeed;
+    public float maxSpeed;
+
+    private bool isBoosting;
+
 
     private void Awake()
     {
@@ -37,7 +46,33 @@ public class newPlayerMovementSystem : MonoBehaviour
     {
         rb.velocity = new Vector3(hInput * moveSpeed, rb.velocity.y, forwardSpeed);
 
-        Vector3 gravity = globalGravity * gravityScale * Vector3.up;
-        rb.AddForce(gravity, ForceMode.Acceleration);
+        if (isBoosting!)
+        {
+            forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed);
+        }
+        else
+        {
+            forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed + increaseAmount);
+        }
+
     }
+
+    public void TempSpeedUp(float increase)
+    {
+        increaseAmount = increase;
+        isBoosting = true;
+        forwardSpeed += increase;
+        StartCoroutine(ResetSpeed(increase));
+
+    }
+
+    IEnumerator ResetSpeed(float decrease)
+    {
+        yield return new WaitForSeconds(speedResetTimer);
+        forwardSpeed -= decrease;
+        isBoosting = false;
+        yield return null;
+
+    }
+
 }
