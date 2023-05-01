@@ -16,12 +16,14 @@ public class SpeedPowerUp : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void CollisionBehavior()
     {
         ++DidThing;
         pc.TempSpeedUp(speedIncrease);
         Destroy(gameObject);
 
     }
+
+
 
 }
