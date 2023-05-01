@@ -8119,7 +8119,6 @@ MonoBehaviour:
   hInput: 0
   moveSpeed: 20
   forwardSpeed: 50
-  gravityScale: 5
   pI: {fileID: 1201622854}
   hMove:
     m_Name: H Move
@@ -8131,7 +8130,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   minSpeed: 0
-  maxSpeed: 0
+  maxSpeed: 50
 --- !u!114 &1201622854
 MonoBehaviour:
   m_ObjectHideFlags: 0

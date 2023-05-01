@@ -13,7 +13,6 @@ public class newPlayerMovementSystem : MonoBehaviour
     public PlayerInput pI;
     public InputAction hMove;
 
-
     private float speedResetTimer = 5;
 
     private float increaseAmount;
@@ -22,7 +21,6 @@ public class newPlayerMovementSystem : MonoBehaviour
     public float maxSpeed;
 
     private bool isBoosting;
-
 
     private void Awake()
     {
