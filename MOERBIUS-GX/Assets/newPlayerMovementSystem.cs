@@ -45,8 +45,17 @@ public class newPlayerMovementSystem : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector3(hInput * moveSpeed, rb.velocity.y, forwardSpeed);
-    }
 
+        if (isBoosting!)
+        {
+            forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed);
+        }
+        else
+        {
+            forwardSpeed = Mathf.Clamp(forwardSpeed, minSpeed, maxSpeed + increaseAmount);
+        }
+
+    }
 
     public void TempSpeedUp(float increase)
     {
@@ -64,5 +73,6 @@ public class newPlayerMovementSystem : MonoBehaviour
         isBoosting = false;
         yield return null;
 
-
     }
+
+}
