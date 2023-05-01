@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
 
     public TMP_Text lapText;
 
-    public Text ammoText;
+    //public Text ammoText;
 
     private float timerCap = 5*60;
     private float negationTimer = 0;
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
         currentLap = 1;
         player = GameObject.FindGameObjectWithTag("Player");
 
-        ammoText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
+        //ammoText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
 
         pauseMenu.SetActive(false);pauseMenu.SetActive(false);
         controlsMenu.SetActive(false);
@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
 
         lapText.text = "Lap " + currentLap;
 
-        ammoText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
+        //ammoText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
 
     }
 
