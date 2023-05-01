@@ -8117,8 +8117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1201622852}
   hInput: 0
-  moveSpeed: 10
-  forwardSpeed: 5
+  moveSpeed: 20
+  forwardSpeed: 30
   pI: {fileID: 1201622854}
   hMove:
     m_Name: H Move
@@ -8129,8 +8129,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  minSpeed: 0
-  maxSpeed: 0
+  activeCheckpoint: {fileID: 0}
 --- !u!114 &1201622854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14633,7 +14632,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 411959893984423355, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 678140327676998114, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -14669,7 +14668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5634544775814389020, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5906439097200010938, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_Name
@@ -14769,7 +14768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906439097267148778, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5906439097267148780, guid: 6e44e70496379f843ba46e8f0ea48459, type: 3}
       propertyPath: m_Text
