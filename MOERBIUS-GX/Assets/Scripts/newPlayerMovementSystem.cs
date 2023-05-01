@@ -22,7 +22,11 @@ public class newPlayerMovementSystem : MonoBehaviour
     public float maxSpeed;
 
     private bool isBoosting;
-
+   
+    /// <summary>
+    /// checkpoint detection
+    /// </summary>
+    public GameObject activeCheckpoint;
 
     private void Awake()
     {
@@ -73,6 +77,21 @@ public class newPlayerMovementSystem : MonoBehaviour
         isBoosting = false;
         yield return null;
 
+    }
+
+    /// <summary>
+    /// This is the script from PlayerBehaviour that handled checkpoints and ammo pickups.
+    /// </summary>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Barrier")
+        {
+            gameObject.transform.position = activeCheckpoint.transform.position;
+        }
+        if (other.gameObject.tag == "AmmoPickup")
+        {
+            other.gameObject.GetComponent<AmmoPickup>().AddAmmo();
+        }
     }
 
 }
