@@ -92,6 +92,11 @@ public class newPlayerMovementSystem : MonoBehaviour
         {
             other.gameObject.GetComponent<AmmoPickup>().AddAmmo();
         }
+       //idk why this doesn't work -Jaxson
+        if(other.gameObject.tag == "SpeedPowerUp")
+        {
+            //other.gameObject.GetComponent<SpeedPowerUp>().CollisionBehavior;
+        }
     }
 
 }

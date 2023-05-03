@@ -52,10 +52,10 @@ public class BulletBehaviour : MonoBehaviour
         }
         
         //The speed power up - speeds up the player when shot. Implementation of speeding up and the destruction of speed power up object is in SpeedPowerUp.
-        if (collision.gameObject.CompareTag("SpeedPowerUp"))
-        {
-            collision.gameObject.GetComponent<SpeedPowerUp>().CollisionBehavior();
-        }
+       // if (collision.gameObject.CompareTag("SpeedPowerUp"))
+       // {
+         //   collision.gameObject.GetComponent<SpeedPowerUp>().CollisionBehavior();
+      //  }
        
     }
 
