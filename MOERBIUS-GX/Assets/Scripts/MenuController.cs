@@ -38,6 +38,6 @@ public class MenuController : MonoBehaviour
 
     public void BeginGame()
     {
-        SceneManager.LoadScene("Racetrack");
+        SceneManager.LoadScene("NEW TRACK");
     }
 }

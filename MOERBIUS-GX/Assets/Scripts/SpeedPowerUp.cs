@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class SpeedPowerUp : MonoBehaviour
 {
-    private playerMovement pc;
-    private float speedIncrease = 15f;
+
+    private newPlayerMovementSystem npc;
+   // private float speedIncrease = 15f;
     public int DidThing;
 
     // Start is called before the first frame update
     void Start()
     {
-        pc = FindObjectOfType<playerMovement>();
+        npc = FindObjectOfType<newPlayerMovementSystem>();
         DidThing = 0;
 
     }
 
-    public void CollisionBehavior()
+    /* public void CollisionBehavior()
+     {
+         ++DidThing;
+         pc.TempSpeedUp(speedIncrease);
+         Destroy(gameObject);
+
+     } */
+
+    private void OnTriggerEnter(Collider other)
     {
-        ++DidThing;
-        pc.TempSpeedUp(speedIncrease);
-        Destroy(gameObject);
-
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            npc.TempSpeedUp();
+            Destroy(gameObject);
+        }
     }
-
 
 
 }

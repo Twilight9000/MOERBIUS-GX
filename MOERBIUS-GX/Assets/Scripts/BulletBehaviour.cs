@@ -46,7 +46,8 @@ public class BulletBehaviour : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         //Destroys specified game objects when they are shot
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("DestructObj"))
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("DestructObj")
+            || collision.gameObject.CompareTag("Untagged") || collision.gameObject.CompareTag("SpeedPlus") || collision.gameObject.CompareTag("SpeedMinus"))
         {
             Destroy(gameObject);
         }

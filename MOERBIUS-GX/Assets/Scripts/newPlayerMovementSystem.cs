@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,15 +12,22 @@ public class newPlayerMovementSystem : MonoBehaviour
     public InputAction hMove;
 
 
-    private float speedResetTimer = 5;
+    private float speedResetTimer = 3;
 
     private float increaseAmount;
 
     private float minSpeed = -20;
-    private float maxSpeed = 25;
+    private float maxSpeed = 50;
 
     private bool isBoosting;
-   
+
+    public float plusinMod;
+    public float minusinMod;
+    private bool SpeedPlusin;
+    private bool SpeedMinusin;
+    private float forwardSpeedInitial;
+
+
     /// <summary>
     /// checkpoint detection
     /// </summary>
@@ -44,10 +49,48 @@ public class newPlayerMovementSystem : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        forwardSpeedInitial = forwardSpeed;
+    }
+
+    private void Update()
+    {
+        if (isBoosting == true)
+        {
+            speedResetTimer -= Time.deltaTime;
+
+        }
+        if (speedResetTimer <= 0)
+        {
+            isBoosting = false;
+            speedResetTimer = 3;
+        }
     }
 
     private void FixedUpdate()
     {
+        if (SpeedPlusin == true)
+        {
+            //moveSpeed += plusinMod;
+            forwardSpeed = forwardSpeedInitial + plusinMod;
+            // print("Plus Boolin");
+        }
+        if (isBoosting == true)
+        {
+            forwardSpeed = forwardSpeedInitial + plusinMod;
+        }
+        if (SpeedMinusin == true)
+        {
+            //moveSpeed -= minusinMod;
+            forwardSpeed = forwardSpeedInitial + minusinMod;
+            //print("Minus Boolin");
+        }
+        if (SpeedPlusin == false && SpeedMinusin == false && isBoosting == false)
+        {
+
+            forwardSpeed = forwardSpeedInitial;
+
+        }
+
         rb.velocity = new Vector3(hInput * moveSpeed, rb.velocity.y, forwardSpeed);
 
         if (isBoosting!)
@@ -61,23 +104,29 @@ public class newPlayerMovementSystem : MonoBehaviour
 
     }
 
-    public void TempSpeedUp(float increase)
+    public void TempSpeedUp()
     {
+        isBoosting = true;
+
+        /*
+        float increase = 20f;
         increaseAmount = increase;
         isBoosting = true;
         forwardSpeed += increase;
         StartCoroutine(ResetSpeed(increase));
+        */
 
     }
 
-    IEnumerator ResetSpeed(float decrease)
-    {
-        yield return new WaitForSeconds(speedResetTimer);
-        forwardSpeed -= decrease;
-        isBoosting = false;
-        yield return null;
+    /*  IEnumerator ResetSpeed(float decrease)
+      {
 
-    }
+          yield return new WaitForSeconds(speedResetTimer);
+          forwardSpeed -= decrease;
+          isBoosting = false;
+          yield return null;
+
+ } */
 
     /// <summary>
     /// This is the script from PlayerBehaviour that handled checkpoints and ammo pickups.
@@ -92,10 +141,39 @@ public class newPlayerMovementSystem : MonoBehaviour
         {
             other.gameObject.GetComponent<AmmoPickup>().AddAmmo();
         }
-       //idk why this doesn't work -Jaxson
-        if(other.gameObject.tag == "SpeedPowerUp")
+        //idk why this doesn't work -Jaxson
+        if (other.gameObject.tag == "SpeedPowerUp")
         {
             //other.gameObject.GetComponent<SpeedPowerUp>().CollisionBehavior;
+        }
+
+        if (other.gameObject.tag == "SpeedPlus")
+        {
+            SpeedPlusin = true;
+            print("Plus Zone!");
+        }
+
+        if (other.gameObject.tag == "SpeedMinus")
+        {
+            SpeedMinusin = true;
+            print("Minus Zone?!");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "SpeedPlus")
+        {
+            SpeedPlusin = false;
+            forwardSpeed = forwardSpeedInitial;
+            print("Exited");
+        }
+
+        if (other.gameObject.tag == "SpeedMinus")
+        {
+            SpeedMinusin = false;
+            forwardSpeed = forwardSpeedInitial;
+            print("Exited");
         }
     }
 
