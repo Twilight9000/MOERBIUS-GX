@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class newPlayerMovementSystem : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class newPlayerMovementSystem : MonoBehaviour
 
     public PlayerInput pI;
     public InputAction hMove;
+    public InputAction restart;
+    
 
 
     private float speedResetTimer = 3;
@@ -27,6 +30,8 @@ public class newPlayerMovementSystem : MonoBehaviour
     private bool SpeedMinusin;
     private float forwardSpeedInitial;
 
+  
+
 
     /// <summary>
     /// checkpoint detection
@@ -43,6 +48,13 @@ public class newPlayerMovementSystem : MonoBehaviour
 
         hMove.performed += ctx => hInput = ctx.ReadValue<float>();
         hMove.canceled += ctx => hInput = 0;
+
+
+        restart = pI.currentActionMap.FindAction("Restart");
+
+        restart.performed += ctx => SceneManager.LoadScene("Menu");
+
+        
     }
 
     // Start is called before the first frame update
@@ -64,6 +76,8 @@ public class newPlayerMovementSystem : MonoBehaviour
             isBoosting = false;
             speedResetTimer = 3;
         }
+
+        
     }
 
     private void FixedUpdate()
