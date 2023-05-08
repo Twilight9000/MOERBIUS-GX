@@ -11434,6 +11434,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  restart:
+    m_Name: Restart
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c585cd90-b6fb-4d0c-97d5-02b791ec08b7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   plusinMod: 25
   minusinMod: -15
   activeCheckpoint: {fileID: 0}
