@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour
     public int score = 0;
     public Text scoreText;
 
+    public Text ammoText;
+    private ShootBehaviour sb;
+
     //public Text ammoText;
 
     private float timerCap = 5*60;
@@ -34,6 +37,7 @@ public class GameController : MonoBehaviour
         negationTimer = timerCap;
         currentLap = 1;
         player = GameObject.FindGameObjectWithTag("Player");
+        sb = FindObjectOfType<ShootBehaviour>();
 
         //ammoText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
 
@@ -78,6 +82,10 @@ public class GameController : MonoBehaviour
         }
 
         lapText.text = "Lap " + currentLap;
+
+        scoreText.text = "Score " + score.ToString();
+
+        ammoText.text = "Ammo " + sb.bulletsAmount.ToString();
 
         //ammoText.text = ("Ammo: " + player.GetComponent<ShootBehaviour>().bulletsAmount);
 

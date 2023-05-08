@@ -15,6 +15,9 @@ public class FinishLine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gc = GameObject.FindObjectOfType<GameController>();
+        gc.GetComponent<GameController>();
+
         foreach (GameObject progressPoint in GameObject.FindGameObjectsWithTag("ProgressPoint"))
         {
             allProgressPoints.Add(progressPoint);
@@ -33,22 +36,22 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            checkpoint = pb.activeCheckpoint;
-            CheckForProgress();
+            //checkpoint = pb.activeCheckpoint;
+            //CheckForProgress();
             if(parentName == "TopFinishLine")
             {
                 gc.score += 3000;
-                gc.scoreText.text = "Score: " + gc.score.ToString();
+                //gc.scoreText.text = "Score: " + gc.score.ToString();
             }
             else if (parentName == "MiddleFinishLine")
             {
                 gc.score += 2000;
-                gc.scoreText.text = "Score: " + gc.score.ToString();
+                //gc.scoreText.text = "Score: " + gc.score.ToString();
             }
             else if (parentName == "BottomFinishLine")
             {
                 gc.score += 1000;
-                gc.scoreText.text = "Score: " + gc.score.ToString();
+                //gc.scoreText.text = "Score: " + gc.score.ToString();
             }
         }
     }

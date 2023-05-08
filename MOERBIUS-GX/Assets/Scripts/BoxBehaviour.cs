@@ -10,6 +10,7 @@ public class BoxBehaviour : MonoBehaviour
     void Start()
     {
         gc = GameObject.FindObjectOfType<GameController>();
+        gc.GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class BoxBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             gc.score += 100;
-            gc.scoreText.text = "Score: " + gc.score.ToString();
+            //gc.scoreText.text = "Score: " + gc.score.ToString();
             Destroy(gameObject);
         }
     }
